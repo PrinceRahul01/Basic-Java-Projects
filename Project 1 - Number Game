@@ -1,0 +1,53 @@
+//Number Game Project
+import java.util.*;
+public class Project1 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int randomNumber=(int)(Math.random()*100);  //Random Number in Range 1-100
+        boolean guess=true;
+        int attemptLimit=10;
+        int roundsWon=0;
+        int timesGamePlayed=0;
+        int numAttempt=0;
+        boolean limitFlag=false;
+        while(guess){
+            ++numAttempt;
+            System.out.println("You have "+attemptLimit+" Attempts");
+            System.out.println("Enter Your Guess : ");            
+            int userGuessedNumber=sc.nextInt();
+            if(userGuessedNumber==randomNumber || limitFlag){
+                timesGamePlayed++;
+                if(limitFlag)
+                    System.out.println("Sorry You Lost, You have taken more than 10 attempts");
+                else{
+                    ++roundsWon;
+                    System.out.println("Congrats you won !!! your guess is right");
+                }
+                System.out.println("Result : You Won "+roundsWon+" out of "+timesGamePlayed);
+                System.out.println("Number of Attempts taken : "+numAttempt);
+                System.out.println("Wanna play again ? press y/Y");
+                char choice=sc.next().charAt(0);
+                if(choice!='y' && choice!='Y'){
+                    System.out.println("Goodbye !");
+                    guess=false;
+                }
+                else{
+                    randomNumber=(int)(Math.random()*100);
+                    numAttempt=0;
+                    attemptLimit=10;
+                    limitFlag=false;
+                }
+                continue;
+            }
+            else if(userGuessedNumber>randomNumber){
+                System.out.println("Your guess is bigger");
+            }
+            else{
+                System.out.println("Your guess is smaller");
+            }
+            attemptLimit--;
+            if(attemptLimit<=1)
+                limitFlag=true;
+        }
+    }   
+}
