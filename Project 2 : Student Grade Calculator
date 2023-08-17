@@ -1,0 +1,37 @@
+// Student Grade Calculator
+import java.util.*;
+public class Project2 {
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Number Of Subjects : ");
+        int numSubjects=sc.nextInt();
+        double marks[]=new double[numSubjects];
+        double total=0.0;
+        double avg=0.0;
+        String grade="";
+        System.out.println("Enter Marks Of "+numSubjects+" Subject(s) one by 1");
+        for(int x=0;x<numSubjects;x++){
+            marks[x]=sc.nextDouble();
+            total+=marks[x];
+        }
+        avg=total/numSubjects;
+        if(avg >= 90)
+            grade="A+";
+        else if(avg>=80)
+            grade="A";
+        else if(avg>=70)
+            grade="B+";
+        else if(avg>=60)
+            grade="B";
+        else if(avg>=50)
+            grade="C";
+        else if(avg>=40)
+            grade="D";
+        else
+            grade="F";
+        System.out.println("----Result----");
+        System.out.println("Total Marks : "+total);
+        System.out.println("Average Percentage : "+ avg);
+        System.out.println("Grade : "+grade);
+    }   
+}
