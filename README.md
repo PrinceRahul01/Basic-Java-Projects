@@ -1,2 +1,2 @@
-# CODSOFT
-Internship Projects
+# Beginner Java Projects
+Basic Java Projects
